@@ -74,7 +74,7 @@ const Navbar = () => {
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                                     </label>
                                 </div>
-                                <a href='/' className=""><img src="/logo.svg" alt="" /></a>
+                                <a href='/' className=""><img src="/logo.svg" alt="GoStudent" /></a>
 
                             </div>
                         </div>
@@ -95,7 +95,7 @@ const Navbar = () => {
                     <div className='mx-0 md:mx-3'>
                         <NavLink to="/all-courses"><button className='flex justify-center items-center font-secondary font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><CiSearch className='text-2xl' /></button></NavLink>
                     </div>
-                    <div className='bg-accent shadow-sm p-3 rounded-md mx-5 md:mx-0'>
+                    <div className='bg-accent hover:bg-primary shadow-sm p-3 rounded-md mx-5 md:mx-0'>
                         <NavLink className=' flex justify-center items-center gap-3 text-white' to="/login"><FiUser className='text-2xl' /><button className='hidden lg:block font-secondary font-semibold text-white'>Login / Register</button></NavLink>
                     </div>
                     {/* <div className="dropdown dropdown-end px-5 md:px-0">
