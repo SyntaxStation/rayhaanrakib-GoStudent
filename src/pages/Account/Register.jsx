@@ -4,7 +4,6 @@ import useAuth from './../../hooks/useAuth';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet';
-import { FaFacebookF } from "react-icons/fa";
 
 const Register = () => {
     const { signup, continueWithGoogle, userUpdateProfile } = useAuth();
@@ -33,29 +32,6 @@ const Register = () => {
                     })
             })
     }
-
-
-
-    // const handleRegister = e => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const name = form.name.value;
-    //     const photo = form.photo.value;
-    //     const password = form.password.value;
-    //     signup(email, password)
-    //         .then(res => {
-    //             userUpdateProfile(name, photo)
-    //                 .then(() => {
-    //                     toast.success("Successfully Registered")
-    //                     navigate(location?.state ? location.state : '/')
-    //                 })
-    //         })
-    //         .catch((err) => {
-    //             toast.error("Invalid Email/Password")
-    //         })
-    // }
-
 
     return (
         <div className='container mx-auto'>

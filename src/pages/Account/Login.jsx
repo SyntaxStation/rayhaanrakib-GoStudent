@@ -4,7 +4,6 @@ import useAuth from './../../hooks/useAuth';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet';
-import { FaFacebookF } from "react-icons/fa";
 
 const Login = () => {
     const { login, continueWithGoogle } = useAuth();
@@ -21,25 +20,19 @@ const Login = () => {
             })
     }
     const onSubmit = data => {
-        console.log(data);
+        const email = data.email;
+        const password = data.password;
+        login(email, password)
+            .then((res) => {
+                toast.success("Successfully Logged In")
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch((err) => {
+                toast.error("Invalid Email/Password")
+            })
     }
 
 
-
-    // const handleLogin = e => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     login(email, password)
-    //         .then((res) => {
-    //             toast.success("Successfully Logged In")
-    //             navigate(location?.state ? location.state : '/')
-    //         })
-    //         .catch((err) => {
-    //             toast.error("Invalid Email/Password")
-    //         })
-    // }
     return (
         <div className='container mx-auto'>
             <Helmet>
@@ -52,7 +45,7 @@ const Login = () => {
                             Reconnect with Learning <span class="text-primary">Excellence</span>
                         </h1>
                         <p class="mt-3 text-sm lg:text-base text-slate-500">
-                           Log in to Continue Your Skillful Journey and Explore a World of Knowledge at Your Fingertips.
+                            Log in to Continue Your Skillful Journey and Explore a World of Knowledge at Your Fingertips.
                         </p>
                         <p class="mt-3 text-sm text-[#50577A]">
                             New to Go Student Classroom? <span className='font-semibold hover:text-primary'><NavLink to="/register">Sign Up Now</NavLink></span>

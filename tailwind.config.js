@@ -11,11 +11,7 @@ export default {
         primary: '#0BAC7C',
         secondary: '#262626',
         accent: '#FF8080',
-      },
-      fontFamily: {
-        'primary': ['Urbanist', 'sans-serif'],
-        'secondary': ['Helvetica Neue', 'sans-serif'],
-      },
+      }
     },
   },
   daisyui: {

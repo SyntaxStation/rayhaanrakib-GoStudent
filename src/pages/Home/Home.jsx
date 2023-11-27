@@ -5,6 +5,7 @@ import ScrollToTop from 'react-scroll-to-top';
 import { Helmet } from 'react-helmet';
 import Partners from './../../components/OurPartnerships/Partners';
 import Feedback from '../../components/OurFeedback/Feedback';
+import OurCourses from '../../components/OurCourses/OurCourses';
 
 const Home = () => {
     return (
@@ -19,7 +20,10 @@ const Home = () => {
             <div data-aos="fade-up" className='container mx-auto mt-20'>
                 <Feedback />
             </div>
-            <div className='bg-gradient-to-r from-white to-base-200 mt-20'>
+            <div data-aos="fade-up" className='container mx-auto mt-20'>
+                <OurCourses />
+            </div>
+            <div className='mt-20'>
                 <AboutCourses></AboutCourses>
             </div>
             <ScrollToTop className='flex justify-center items-center' smooth />

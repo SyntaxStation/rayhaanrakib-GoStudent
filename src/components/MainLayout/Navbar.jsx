@@ -2,9 +2,29 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FiUser } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
+import useAuth from '../../hooks/useAuth';
 
 
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+    const handleLogOut = e => {
+        logOut()
+            .then((res) => {
+                toast.success('Sign Out Successfully.', {
+                    style: {
+                        border: '1px solid #FF6C22',
+                        padding: '16px',
+                        color: '#713200',
+                    },
+                    iconTheme: {
+                        primary: '#FF6C22',
+                        secondary: '#FFFAEE',
+                    },
+                });
+            })
+
+    }
+
 
     const navlinks = <>
         <li>
@@ -16,7 +36,7 @@ const Navbar = () => {
             >
                 Home
             </NavLink>
-         </li>
+        </li>
         <li>
             <NavLink
                 to="/all-courses"
@@ -26,7 +46,7 @@ const Navbar = () => {
             >
                 Courses
             </NavLink>
-         </li>
+        </li>
         {/* <li>
             <NavLink
                 to="/about-us"
@@ -56,7 +76,7 @@ const Navbar = () => {
             >
                 Become An Instructor
             </NavLink>
-         </li>
+        </li>
     </>
 
 
@@ -87,31 +107,36 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="flex gap-5 capitalize font-secondary font-semibold text-[#3f4563] px-2">
+                    <ul className="flex gap-5 capitalize  font-semibold text-[#3f4563] px-2">
                         {navlinks}
                     </ul>
                 </div>
                 <div className="navbar-end mx-0 md:mx-3">
                     <div className='mx-0 md:mx-3'>
-                        <NavLink to="/all-courses"><button className='flex justify-center items-center font-secondary font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><CiSearch className='text-2xl' /></button></NavLink>
+                        <NavLink to="/all-courses"><button className='flex justify-center items-center  font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><CiSearch className='text-2xl' /></button></NavLink>
                     </div>
-                    <div className='bg-primary hover:bg-accent shadow-sm p-3 rounded-md mx-5 md:mx-0'>
-                        <NavLink className=' flex justify-center items-center gap-3 text-white' to="/login"><FiUser className='text-2xl' /><button className='hidden lg:block font-secondary font-semibold text-white'>Login / Register</button></NavLink>
-                    </div>
-                    {/* <div className="dropdown dropdown-end px-5 md:px-0">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Profile" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-center bg-primary rounded-box w-60 text-white">
-                            <li className="text-lg font-medium my-2">
-                                    Rakibul Islam
-                            </li>
-                            <li><Link className='py-2 font-semibold' to="dashboard">My Dashboard</Link></li>
-                            <li><button className='py-2 font-semibold'>Logout</button></li>
-                        </ul>
-                    </div> */}
+                    {
+                        user ? <div className="dropdown dropdown-end px-5 md:px-0">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img alt="Profile" src={user?.photoURL} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow text-center bg-base-100 rounded-box w-60">
+                                <li className="text-lg font-medium mt-2">
+                                    {user?.displayName}
+                                </li>
+                                <li className="text-sm mb-3">
+                                    {user?.email}
+                                </li>
+                                <li><Link className='py-2 font-semibold' to="dashboard">My Dashboard</Link></li>
+                                <li><button onClick={handleLogOut} className='py-2 font-semibold'>Logout</button></li>
+                            </ul>
+                        </div> : <div className='bg-primary hover:bg-accent shadow-sm p-3 rounded-md mx-5 md:mx-0'>
+                            <NavLink className=' flex justify-center items-center gap-3 text-white' to="/login"><FiUser className='text-2xl' /><button className='hidden lg:block  font-semibold text-white'>Login / Register</button></NavLink>
+                        </div>
+                    }
+
                 </div>
             </div>
         </div>

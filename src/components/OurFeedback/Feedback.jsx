@@ -1,24 +1,15 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import './styles.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import SectionTitle from './../../shared/SectionTitle';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useFeedbacks from '../../hooks/useFeedbacks';
 
 const Feedback = () => {
-    const [feedbacks, setFeedbacks] = useState([])
-    const axiosSecure = useAxiosSecure();
-    const url = '/api/v1/feedbacks'
-    useEffect(() => {
-        axiosSecure.get(url)
-            .then(res => {
-                setFeedbacks(res.data)
-            })
-    }, [axiosSecure, url])
-
+    const [feedbacks] = useFeedbacks();
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
     const onAutoplayTimeLeft = (s, time, progress) => {
@@ -29,7 +20,7 @@ const Feedback = () => {
     return (
         <div className='py-10'>
             <SectionTitle heading="Success Stories" subheading="Real Feedback, Real Growth." />
-            <div className='flex flex-col lg:flex-row gap-x-10 mt-5'>
+            <div className='flex flex-col lg:flex-row items-center gap-x-10 mt-5'>
                 <div className='lg:relative m-10'>
                     <img className='w-[800px]' src="https://eduvibe.react.devsvibe.com/images/testimonial-section/testimonial-01.jpg" alt="" />
                     <div className='hidden lg:block absolute -left-12 -bottom-12 '>
@@ -53,7 +44,7 @@ const Feedback = () => {
 
 
                     {
-                        feedbacks.map(feedback => <SwiperSlide key={feedback._id}>
+                        feedbacks?.map(feedback => <SwiperSlide key={feedback._id}>
                             <div className='px-10 lg:px-0'>
                                 <div className='w-20'>
                                     <img className='' src="https://eduvibe.react.devsvibe.com/images/testimonial/testimonial-01/quote.png" alt="" />
