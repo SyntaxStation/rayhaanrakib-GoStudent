@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { NavLink } from 'react-router-dom';
 
 const OurCourses = () => {
     const [topCourses] = useTopCourses();
@@ -12,11 +13,10 @@ const OurCourses = () => {
     return (
         <div className='px-5 lg:px-0'>
             <SectionTitle heading="Explore Our Popular Courses" subheading="Discover Trending and Highly Recommended Classes" ></SectionTitle>
-
             <div className='mt-16'>
                 <div className='flex justify-between'>
                     <h1 className='text-xl lg:text-3xl font-semibold text-primary w-full pr-2 lg:pr-0 lg:w-1/3'>Most Popular and In-Demand Classes on Our Platform</h1>
-                    <button className='btn'>All Courses</button>
+                    <NavLink to="/all-courses"><button className='btn bg-white'>All Courses</button></NavLink>
                 </div>
                 <p className='text-secondary w-full md:w-3/4 mt-3 lg:mt-5'>Unlock a world of knowledge with our most sought-after courses. Explore trending topics and gain valuable skills from the courses that learners like you find most compelling. Enroll today to join the community of learners shaping their futures with our popular courses.</p>
             </div>

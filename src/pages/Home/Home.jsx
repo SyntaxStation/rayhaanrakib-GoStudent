@@ -6,11 +6,14 @@ import { Helmet } from 'react-helmet';
 import Partners from './../../components/OurPartnerships/Partners';
 import Feedback from '../../components/OurFeedback/Feedback';
 import OurCourses from '../../components/OurCourses/OurCourses';
+import BecomeInstructor from '../../components/BecomeInstructor/BecomeInstructor';
+import OurServices from './../../components/OurServices/OurServices';
+import Faq from '../../components/Faq/Faq';
 
 const Home = () => {
     return (
         <div>
-            <Helmet title='GoStudent | Empower Learning, Ignite Futures' />
+            <Helmet title='GoStudent Classroom | Empower Learning, Ignite Futures' />
             <div className='py-0 lg:py-5'>
                 <Banner></Banner>
             </div>
@@ -23,9 +26,19 @@ const Home = () => {
             <div data-aos="fade-up" className='container mx-auto mt-20'>
                 <OurCourses />
             </div>
+            <div data-aos="fade-up" className='container mx-auto mt-20'>
+                <OurServices />
+            </div>
+            <div data-aos="fade-up" className='container mx-auto mt-20'>
+                <BecomeInstructor />
+            </div>
             <div className='mt-20'>
                 <AboutCourses></AboutCourses>
             </div>
+            <div data-aos="fade-up" className='container mx-auto mt-20'>
+                <Faq />
+            </div>
+            
             <ScrollToTop className='flex justify-center items-center' smooth />
         </div>
 

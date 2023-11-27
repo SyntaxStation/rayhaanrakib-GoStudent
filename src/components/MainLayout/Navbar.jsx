@@ -47,26 +47,16 @@ const Navbar = () => {
                 Courses
             </NavLink>
         </li>
-        {/* <li>
+        <li>
             <NavLink
                 to="/about-us"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "font-bold text-accent " : ""
                 }
             >
-                About
+                About Us
             </NavLink>
          </li>
-        <li>
-            <NavLink
-                to="/contact-us"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-bold text-accent " : ""
-                }
-            >
-                Contact
-            </NavLink>
-         </li> */}
         <li>
             <NavLink
                 to="/join-as-instructor"
