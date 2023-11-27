@@ -22,9 +22,10 @@ const Feedback = () => {
             <SectionTitle heading="Success Stories" subheading="Real Feedback, Real Growth." />
             <div className='flex flex-col lg:flex-row items-center gap-x-10 mt-5'>
                 <div className='lg:relative m-10'>
-                    <img className='w-[800px]' src="https://eduvibe.react.devsvibe.com/images/testimonial-section/testimonial-01.jpg" alt="" />
+                    <img className='w-[800px] hidden lg:block object-cover' src="https://i.ibb.co/D4ckjdK/user3.jpg" alt="" />
+                    <img className='w-[800px] block lg:hidden object-cover rounded-md' src="https://i.ibb.co/rQJM3Vn/user4.jpg" alt="" />
                     <div className='hidden lg:block absolute -left-12 -bottom-12 '>
-                        <img src="https://eduvibe.react.devsvibe.com/images/shapes/shape-02-01.png" alt="" />
+                        <img src="https://i.ibb.co/nzPxqDh/shape-02.png" alt="" />
                     </div>
                 </div>
                 <Swiper
@@ -46,10 +47,10 @@ const Feedback = () => {
                     {
                         feedbacks?.map(feedback => <SwiperSlide key={feedback._id}>
                             <div className='px-10 lg:px-0'>
-                                <div className='w-20'>
-                                    <img className='' src="https://eduvibe.react.devsvibe.com/images/testimonial/testimonial-01/quote.png" alt="" />
+                                <div className='w-10 md:w-20'>
+                                    <img className='' src="https://i.ibb.co/f2mpwPq/quote.png" alt="" />
                                 </div>
-                                <p className='my-10 text-start text-gray-700 text-2xl'>{feedback?.feedbackText}</p>
+                                <p className='my-10 text-start text-gray-700 text-xl md:text-2xl'>{feedback?.feedbackText}</p>
                                 <div className='flex items-center gap-4 mb-20'>
                                     <div className='h-20 w-20 object-cover rounded-full'>
                                         <img className='rounded-full' src={feedback?.image} alt="" />

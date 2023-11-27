@@ -7,7 +7,7 @@ const OurTeam = () => {
         <div>
             <SectionTitle heading="About GoStudent Classroom" subheading="Empowering Futures, One Lesson at a Time" />
             <div className='flex flex-col lg:flex-row items-center'>
-                <img src="https://cdn.dribbble.com/users/997048/screenshots/5516349/media/40125b6ac893e19389b2845ae1cce57e.gif" alt="" />
+                <img src="https://i.ibb.co/PtjJ8xr/team.gif" alt="about us" />
                 <div className='px-4 lg:px-0'>
                     <h2 className='text-4xl mb-3 font-medium'>Explore the story behind GoStudent</h2>
                     <p className='mt-1 text-gray-400'>Welcome to GoStudent Classroom, where education meets innovation. At GoStudent Classroom, we are passionate about reshaping the learning landscape, providing a platform that transcends boundaries and empowers individuals to unlock their full potential. Our team is committed to fostering a community of learners and instructors dedicated to continuous growth and knowledge exchange. Join us on this transformative journey as we redefine the future of online education.</p>
