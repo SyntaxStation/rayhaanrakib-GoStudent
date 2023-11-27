@@ -29,7 +29,7 @@ const Feedback = () => {
     return (
         <div className='py-10'>
             <SectionTitle heading="Success Stories" subheading="Real Feedback, Real Growth." />
-            <div className='flex flex-col lg:flex-row gap-x-10'>
+            <div className='flex flex-col lg:flex-row gap-x-10 mt-5'>
                 <div className='lg:relative m-10'>
                     <img className='w-[800px]' src="https://eduvibe.react.devsvibe.com/images/testimonial-section/testimonial-01.jpg" alt="" />
                     <div className='hidden lg:block absolute -left-12 -bottom-12 '>

@@ -5,6 +5,8 @@ import Error from './../pages/Error/Error';
 import Home from '../pages/Home/Home';
 import Login from './../pages/Account/Login';
 import Register from './../pages/Account/Register';
+import Courses from './../pages/Courses/Courses';
+import JoinAsTeacher from './../pages/Account/JoinAsTeacher';
 
 
 const Routes = createBrowserRouter([
@@ -24,6 +26,14 @@ const Routes = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/all-courses",
+                element: <Courses></Courses>
+            },
+            {
+                path: "/join-as-instructor",
+                element: <JoinAsTeacher></JoinAsTeacher>
             }
         ]
     },

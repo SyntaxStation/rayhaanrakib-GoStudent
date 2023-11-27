@@ -62,7 +62,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='container mx-auto my-3'>
+        <div className='container mx-auto mt-3'>
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="drawer z-20">
@@ -95,7 +95,7 @@ const Navbar = () => {
                     <div className='mx-0 md:mx-3'>
                         <NavLink to="/all-courses"><button className='flex justify-center items-center font-secondary font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><CiSearch className='text-2xl' /></button></NavLink>
                     </div>
-                    <div className='bg-accent hover:bg-primary shadow-sm p-3 rounded-md mx-5 md:mx-0'>
+                    <div className='bg-primary hover:bg-accent shadow-sm p-3 rounded-md mx-5 md:mx-0'>
                         <NavLink className=' flex justify-center items-center gap-3 text-white' to="/login"><FiUser className='text-2xl' /><button className='hidden lg:block font-secondary font-semibold text-white'>Login / Register</button></NavLink>
                     </div>
                     {/* <div className="dropdown dropdown-end px-5 md:px-0">
