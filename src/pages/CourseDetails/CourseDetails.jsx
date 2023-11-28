@@ -36,7 +36,7 @@ const CourseDetails = () => {
                 <div className='h-80 bg-white shadow-lg rounded-md flex items-center justify-center'>
                     <h1 className='text-5xl font-semibold'>Course Details</h1>
                 </div>
-                <div className='flex flex-col lg:flex-row'>
+                <div className='flex flex-col lg:flex-row min-h-screen'>
                     <div className='my-20 pl-10 pr-5 lg:pr-0 lg:w-2/3'>
                         <div className='flex flex-col lg:flex-row gap-5 items-center'>
                             <img className='w-20 h-20 object-cover rounded-full' src={instructorImage} alt="instructorImage" />
@@ -83,14 +83,14 @@ const CourseDetails = () => {
                                     <img className="rounded-md  object-cover h-60 md:h-80 lg:h-60 w-full" src={courseImage} alt="Course image" />
                                 </a>
                             </Link>
-                            <div className='flex flex-col gap-4 my-3 lg:my-0'>
+                            <div className='flex flex-col gap-4 my-1 md:my-3 lg:my-0'>
                                 <div className='flex items-center justify-between'>
                                     <h3 className='text-left text-gray-700 capitalize font-medium'>Category:</h3>
                                     <p className='text-right text-gray-800 font-medium'>{courseCategory}</p>
                                 </div>
                                 <div className='flex items-center justify-between'>
                                     <h3 className='text-left text-gray-700 capitalize font-medium'>Enrollment:</h3>
-                                    <p className='text-right text-gray-800 font-medium'>{totalEnrollment}</p>
+                                    <p className='text-right text-gray-800 font-medium'>{totalEnrollment} Students</p>
                                 </div>
                                 <div className='flex items-center justify-between'>
                                     <h3 className='text-left text-gray-700 capitalize font-medium'>language:</h3>

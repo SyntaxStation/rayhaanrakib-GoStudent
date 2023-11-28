@@ -4,8 +4,10 @@ import useAuth from './../../hooks/useAuth';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Register = () => {
+    const axiosPublic = useAxiosPublic();
     const { signup, continueWithGoogle, userUpdateProfile } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
@@ -23,12 +25,26 @@ const Register = () => {
         const name = data.name;
         const photo = data.photo;
         const password = data.password;
+        const role = "user";
+        const category = "";
+        const experience = "";
+        const title = "";
         signup(email, password)
             .then(res => {
                 userUpdateProfile(name, photo)
                     .then(() => {
-                        toast.success("Successfully Registered")
-                        navigate(location?.state ? location.state : '/')
+                        const userInfo = {
+                            displayName: name,
+                            photoURL: photo,
+                            email,
+                            role, category, experience, title
+                        };
+                        axiosPublic.post('/api/v1/users', userInfo)
+                            .then(res => {
+                                toast.success("Successfully Registered")
+                                navigate(location?.state ? location.state : '/')
+                            })
+
                     })
             })
     }
@@ -38,7 +54,7 @@ const Register = () => {
             <Helmet>
                 <title>GoStudent Classroom | SignUp</title>
             </Helmet>
-            <div class="flex overflow-hidden items-center gap-5">
+            <div class="flex flex-row-reverse overflow-hidden items-center gap-5">
                 <div class="w-full md:w-1/2 py-12 px-4 sm:px-6 md:py-20 md:px-8">
                     <div class="mx-auto">
                         <h1 class="text-2xl max-w-md md:max-w-xl text-secondary font-bold md:text-2xl md:leading-tight lg:text-4xl lg:leading-tight">

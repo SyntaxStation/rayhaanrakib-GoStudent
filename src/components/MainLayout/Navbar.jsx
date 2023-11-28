@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { FiUser } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import useAuth from '../../hooks/useAuth';
+import { FaShoppingCart } from 'react-icons/fa';
 
 
 const Navbar = () => {
@@ -102,6 +103,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end mx-0 md:mx-3">
+                    <div className='mx-0 md:mx-3'>
+                        <NavLink to="/cart"><button className='flex justify-center items-center  font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><FaShoppingCart className='text-2xl' /></button></NavLink>
+                    </div>
                     <div className='mx-0 md:mx-3'>
                         <NavLink to="/all-courses"><button className='flex justify-center items-center  font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><CiSearch className='text-2xl' /></button></NavLink>
                     </div>

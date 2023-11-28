@@ -9,6 +9,7 @@ import Courses from './../pages/Courses/Courses';
 import JoinAsTeacher from './../pages/Account/JoinAsTeacher';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import CourseDetails from '../pages/CourseDetails/CourseDetails';
+import PrivateRoutes from './PrivateRoutes';
 
 
 const Routes = createBrowserRouter([
@@ -35,7 +36,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/course/:id",
-                element: <CourseDetails></CourseDetails>
+                element: <PrivateRoutes><CourseDetails></CourseDetails></PrivateRoutes>
             },
             {
                 path: "/about-us",
@@ -43,7 +44,7 @@ const Routes = createBrowserRouter([
             },
             {
                 path: "/join-as-instructor",
-                element: <JoinAsTeacher></JoinAsTeacher>
+                element: <PrivateRoutes><JoinAsTeacher></JoinAsTeacher></PrivateRoutes>
             }
         ]
     },
