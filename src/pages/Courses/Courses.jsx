@@ -6,12 +6,12 @@ import CourseCard from './CourseCard';
 
 const Courses = () => {
     const [search, setSearch] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [allCourses] = useCoursesData({ search });
-    console.log(allCourses);
+    const [allCourses, refetch, isLoading] = useCoursesData({ search });
+
     const handleSearch = e => {
         e.preventDefault();
         const searchText = e.target.search.value;
+        refetch();
         setSearch(searchText)
     }
 
@@ -43,7 +43,7 @@ const Courses = () => {
                                         </div>
                                     </form>
                                 </div>
-                                
+
                                 {/* <select className="select select-bordered w-full max-w-xs mt-12">
                                     <option disabled selected>Specific Category</option>
                                     <option>Han Solo</option>
@@ -57,7 +57,7 @@ const Courses = () => {
                                                 :
                                                 (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center'>
                                                     {
-                                                        allCourses?.map(course => <CourseCard key={course._id} course={course} ></CourseCard> )
+                                                        allCourses?.map(course => <CourseCard key={course._id} course={course} ></CourseCard>)
                                                     }
                                                 </div>)
                                         }

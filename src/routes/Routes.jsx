@@ -8,6 +8,7 @@ import Register from './../pages/Account/Register';
 import Courses from './../pages/Courses/Courses';
 import JoinAsTeacher from './../pages/Account/JoinAsTeacher';
 import AboutUs from '../pages/AboutUs/AboutUs';
+import CourseDetails from '../pages/CourseDetails/CourseDetails';
 
 
 const Routes = createBrowserRouter([
@@ -31,6 +32,10 @@ const Routes = createBrowserRouter([
             {
                 path: "/all-courses",
                 element: <Courses></Courses>
+            },
+            {
+                path: "/course/:id",
+                element: <CourseDetails></CourseDetails>
             },
             {
                 path: "/about-us",

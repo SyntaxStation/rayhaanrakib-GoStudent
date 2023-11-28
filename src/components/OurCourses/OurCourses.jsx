@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const OurCourses = () => {
     const [topCourses] = useTopCourses();
@@ -23,7 +23,7 @@ const OurCourses = () => {
 
             {/* large screen */}
             <div className='mt-10 hidden lg:block'>
-                
+
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={30}
@@ -35,35 +35,37 @@ const OurCourses = () => {
                 >
                     {
                         topCourses?.map(course => <SwiperSlide key={course._id}>
-                            <div className="max-w-sm rounded-lg shadow bg-secondary">
+                            <div className="max-w-sm rounded-lg shadow-md bg-white">
                                 <div className='h-56 w-full'>
                                     <img className="rounded-t-lg object-cover" src={course.courseImage} alt="" />
                                 </div>
                                 <div className="p-5">
-                                    <a href="#">
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{course.courseName}</h5>
+                                    <a>
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight">{course.courseName}</h5>
                                     </a>
                                     <p className="mb-3 font-normal text-primary">Total Enrollment: {course.totalEnrollment}</p>
                                     <p className="mb-3 h-20 font-normal text-gray-400">{course.shortDescription}</p>
-                                    <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-primary focus:ring-primary">
-                                        Read more
-                                        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                        </svg>
-                                    </a>
+                                    <Link to={`course/${course._id}`}>
+                                        <a className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-primary focus:ring-primary">
+                                            Read more
+                                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                            </svg>
+                                        </a>
+                                    </Link>
                                 </div>
                             </div>
                         </SwiperSlide>)
                     }
-                    
+
                 </Swiper>
 
-                
+
 
             </div>
             {/* medium screen */}
             <div className='mt-10 hidden md:block lg:hidden'>
-                
+
                 <Swiper
                     slidesPerView={2}
                     spaceBetween={30}
@@ -80,30 +82,32 @@ const OurCourses = () => {
                                     <img className="rounded-t-lg object-cover" src={course.courseImage} alt="" />
                                 </div>
                                 <div className="p-5">
-                                    <a href="#">
+                                    <a>
                                         <h5 className="mb-2 text-xl font-bold tracking-tight text-white">{course.courseName}</h5>
                                     </a>
                                     <p className="mb-3 font-normal text-primary">Total Enrollment: {course.totalEnrollment}</p>
                                     <p className="mb-3 h-20 font-normal text-gray-400">{course.shortDescription}</p>
-                                    <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-primary focus:ring-primary">
-                                        Read more
-                                        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                        </svg>
-                                    </a>
+                                    <Link to={`course/${course._id}`}>
+                                        <a className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-primary focus:ring-primary">
+                                            Read more
+                                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                            </svg>
+                                        </a>
+                                    </Link>
                                 </div>
                             </div>
                         </SwiperSlide>)
                     }
-                    
+
                 </Swiper>
 
-                
+
 
             </div>
             {/* small screen */}
             <div className='mt-10 block md:hidden'>
-                
+
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
@@ -120,25 +124,28 @@ const OurCourses = () => {
                                     <img className="rounded-t-lg object-cover" src={course.courseImage} alt="" />
                                 </div>
                                 <div className="p-5">
-                                    <a href="#">
+                                    <a>
                                         <h5 className="mb-2 text-lg font-bold tracking-tight text-white">{course.courseName}</h5>
                                     </a>
                                     <p className="mb-3 font-normal text-primary">Total Enrollment: {course.totalEnrollment}</p>
                                     <p className="mb-3 h-20 font-normal text-gray-400">{course.shortDescription}</p>
-                                    <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-primary focus:ring-primary">
-                                        Read more
-                                        <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                        </svg>
-                                    </a>
+                                    <Link to={`course/${course._id}`}>
+                                        <a className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg focus:ring-4 focus:outline-none bg-primary focus:ring-primary">
+                                            Read more
+                                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                            </svg>
+                                        </a>
+                                    </Link>
+
                                 </div>
                             </div>
                         </SwiperSlide>)
                     }
-                    
+
                 </Swiper>
 
-                
+
 
             </div>
         </div>
