@@ -3,10 +3,12 @@ import CountUp from 'react-countup';
 import ScrollTrigger from 'react-scroll-trigger';
 import useCourses from '../../hooks/useCourses';
 import SectionTitle from '../../shared/SectionTitle';
+import useUsersData from '../../hooks/useUsersData';
 
 
 const OurServices = () => {
     const [courses] = useCourses();
+    const [users] = useUsersData();
     const [counterOn, setCounterOn] = useState(false);
     return (
         <div className='px-5 lg:px-0'>
@@ -23,7 +25,7 @@ const OurServices = () => {
                             <div className="container flex flex-col items-center gap-16 mx-auto my-16">
                                 <div className="grid w-full grid-cols-3 gap-y-8">
                                     <div className="flex flex-col items-center">
-                                        <h3 className="text-2xl md:text-3xl lg:text-5xl font-extrabold leading-tight text-center"> {counterOn && <CountUp start={0} end={100} />}+</h3>
+                                        <h3 className="text-2xl md:text-3xl lg:text-5xl font-extrabold leading-tight text-center"> {counterOn && <CountUp start={0} end={users.length} />}+</h3>
                                         <p className="text-base font-medium leading-7 text-center capitalize">total users</p>
                                     </div>
                                     <div className="flex flex-col items-center">

@@ -15,9 +15,27 @@ const Register = () => {
 
     const handleGoogle = e => {
         e.preventDefault();
+        const role = "user";
+        const category = "";
+        const experience = "";
+        const title = "";
         continueWithGoogle()
-            .then((res) => {
-                navigate(location?.state ? location.state : '/')
+            .then(result => {
+                const userInfo = {
+                    displayName: result.user?.displayName,
+                    photoURL: result.user?.photoURL,
+                    email: result.user?.email,
+                    role,
+                    category,
+                    experience,
+                    title
+                };
+                axiosPublic.post('/api/v1/users', userInfo)
+                    .then(res => {
+                        toast.success("Successfully Registered")
+                        navigate(location?.state ? location.state : '/#')
+                        window.location.reload();
+                    })
             })
     }
     const onSubmit = data => {
@@ -42,7 +60,8 @@ const Register = () => {
                         axiosPublic.post('/api/v1/users', userInfo)
                             .then(res => {
                                 toast.success("Successfully Registered")
-                                navigate(location?.state ? location.state : '/')
+                                navigate(location?.state ? location.state : '/#')
+                                window.location.reload();
                             })
 
                     })

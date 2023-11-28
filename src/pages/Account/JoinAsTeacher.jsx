@@ -102,7 +102,9 @@ const JoinAsTeacher = () => {
 
                             <div class="grid">
                                 {
-                                    requester?.role === "applied" || requester?.role === "teacher" ? <div></div> : <button type="submit" class="py-3 px-4 inline-flex justify-center items-center uppercase gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all text-smsm:p-4">submit for review</button>
+                                    requester?.role === "applied" || requester?.role === "teacher" ? <button disabled type="submit" class="py-3 px-4 inline-flex justify-center items-center uppercase gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all text-smsm:p-4">already submitted for review</button>
+                                        :
+                                        <button type="submit" class="py-3 px-4 inline-flex justify-center items-center uppercase gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all text-smsm:p-4">submit for review</button>
                                 }
                             </div>
                         </form>

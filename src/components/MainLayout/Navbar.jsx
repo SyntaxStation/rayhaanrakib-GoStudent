@@ -1,13 +1,18 @@
-import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FiUser } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import useAuth from '../../hooks/useAuth';
-import { FaShoppingCart } from 'react-icons/fa';
+import useUsersData from '../../hooks/useUsersData';
 
 
 const Navbar = () => {
-    const { user, logOut } = useAuth();
+    const { user, logOut, loading } = useAuth();
+    const [users] = useUsersData();
+    if (loading) {
+        return <h2>loading</h2>
+    }
+    const current = users.find(userData => userData?.email === user?.email);
+    
     const handleLogOut = e => {
         logOut()
             .then((res) => {
@@ -104,9 +109,6 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end mx-0 md:mx-3">
                     <div className='mx-0 md:mx-3'>
-                        <NavLink to="/cart"><button className='flex justify-center items-center  font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><FaShoppingCart className='text-2xl' /></button></NavLink>
-                    </div>
-                    <div className='mx-0 md:mx-3'>
                         <NavLink to="/all-courses"><button className='flex justify-center items-center  font-semibold bg-white text-accent p-3 rounded-md shadow-sm'><CiSearch className='text-2xl' /></button></NavLink>
                     </div>
                     {
@@ -123,7 +125,7 @@ const Navbar = () => {
                                 <li className="text-sm mb-3">
                                     {user?.email}
                                 </li>
-                                <li><Link className='py-2 font-semibold' to="dashboard">My Dashboard</Link></li>
+                                <li><Link className='py-2 font-semibold' to={`/${current?.role}-dashboard/profile`}>My Dashboard</Link></li>
                                 <li><button onClick={handleLogOut} className='py-2 font-semibold'>Logout</button></li>
                             </ul>
                         </div> : <div className='bg-primary hover:bg-accent shadow-sm p-3 rounded-md mx-5 md:mx-0'>

@@ -4,8 +4,10 @@ import useAuth from './../../hooks/useAuth';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const Login = () => {
+    const axiosPublic = useAxiosPublic();
     const { login, continueWithGoogle } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
@@ -14,9 +16,27 @@ const Login = () => {
 
     const handleGoogle = e => {
         e.preventDefault();
+        const role = "user";
+        const category = "";
+        const experience = "";
+        const title = "";
         continueWithGoogle()
-            .then((res) => {
-                navigate(location?.state ? location.state : '/')
+            .then(result => {
+                const userInfo = {
+                    displayName: result.user?.displayName,
+                    photoURL: result.user?.photoURL,
+                    email: result.user?.email,
+                    role,
+                    category,
+                    experience,
+                    title
+                };
+                axiosPublic.post('/api/v1/users', userInfo)
+                    .then(res => {
+                        toast.success("Successfully Registered")
+                        navigate(location?.state ? location.state : '/#')
+                        window.location.reload();
+                    })
             })
     }
     const onSubmit = data => {
@@ -25,7 +45,8 @@ const Login = () => {
         login(email, password)
             .then((res) => {
                 toast.success("Successfully Logged In")
-                navigate(location?.state ? location.state : '/')
+                navigate(location?.state ? location.state : '/#')
+                window.location.reload();
             })
             .catch((err) => {
                 toast.error("Invalid Email/Password")

@@ -10,6 +10,12 @@ import JoinAsTeacher from './../pages/Account/JoinAsTeacher';
 import AboutUs from '../pages/AboutUs/AboutUs';
 import CourseDetails from '../pages/CourseDetails/CourseDetails';
 import PrivateRoutes from './PrivateRoutes';
+import AdminDashboard from '../pages/Dashboards/AdminDashboard/AdminDashboard';
+import StudentDashboard from '../pages/Dashboards/StudentDashboard/StudentDashboard';
+import TeacherDashboard from '../pages/Dashboards/TeacherDashboard/TeacherDashboard';
+import AdminProfile from './../pages/Dashboards/AdminDashboard/AdminProfile';
+import StudentProfile from './../pages/Dashboards/StudentDashboard/StudentProfile';
+import TeacherProfile from './../pages/Dashboards/TeacherDashboard/TeacherProfile';
 
 
 const Routes = createBrowserRouter([
@@ -45,9 +51,42 @@ const Routes = createBrowserRouter([
             {
                 path: "/join-as-instructor",
                 element: <PrivateRoutes><JoinAsTeacher></JoinAsTeacher></PrivateRoutes>
+            },
+        ]
+    },
+    {
+        path: "admin-dashboard",
+        element: <PrivateRoutes><AdminDashboard></AdminDashboard></PrivateRoutes>,
+        children: [
+            {
+                path: "profile",
+                element: <PrivateRoutes><AdminProfile></AdminProfile></PrivateRoutes>
+
             }
         ]
     },
+    {
+        path: "user-dashboard",
+        element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>,
+        children: [
+            {
+                path: "profile",
+                element: <PrivateRoutes><StudentProfile></StudentProfile></PrivateRoutes>
+
+            }
+        ]
+    },
+    {
+        path: "teacher-dashboard",
+        element: <PrivateRoutes><TeacherDashboard></TeacherDashboard></PrivateRoutes>,
+        children: [
+            {
+                path: "profile",
+                element: <PrivateRoutes><TeacherProfile></TeacherProfile></PrivateRoutes>
+
+            }
+        ]
+    }
 ]);
 
 export default Routes;
