@@ -56,7 +56,7 @@ const BecomeInstructor = () => {
                                 </li>
                             </ul>
                             <a className="w-full sm:w-auto py-4 px-5 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary text-white hover:bg-accent disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="/join-as-instructor">
-                                Get Started Today <FaArrowRight></FaArrowRight>
+                                Become An Instructor <FaArrowRight></FaArrowRight>
                             </a>
                         </div>
                     </div>

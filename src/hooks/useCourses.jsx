@@ -6,7 +6,7 @@ const useCourses = () => {
     const { data: courses = [] } = useQuery({
         queryKey: ['courses'],
         queryFn: async () => {
-            const url = `/api/v1/courses`
+            const url = `/api/v1/courses?status=1`
             const res = await axiosSecure.get(url)
             return res.data
         }

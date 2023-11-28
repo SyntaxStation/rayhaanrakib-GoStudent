@@ -6,7 +6,7 @@ const useTopCourses = () => {
     const { data: topCourses = [] } = useQuery({
         queryKey: ['topCourses'],
         queryFn: async () => {
-            const url = `/api/v1/top-courses?sort=asc`
+            const url = `/api/v1/top-courses?status=1`
             const res = await axiosSecure.get(url)
             return res.data
         }
