@@ -12,16 +12,15 @@ const JoinAsTeacher = () => {
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
     const requester = users.find(userData => userData?.email == email);
-    console.log(requester);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, formState: { errors } } = useForm();
 
     const handleJoin = e => {
         e.preventDefault();
         const title = event.target.title.value;
-        const role = "applied";
+        const status = "applied";
         const category = document.getElementById("category").value;
         const experience = document.getElementById("experience").value;
-        const requestProfile = { displayName, email, photoURL, category, experience, title, role };
+        const requestProfile = { displayName, email, photoURL, category, experience, title, status };
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -102,9 +101,12 @@ const JoinAsTeacher = () => {
 
                             <div class="grid">
                                 {
-                                    requester?.role === "applied" || requester?.role === "teacher" ? <button disabled type="submit" class="py-3 px-4 inline-flex justify-center items-center uppercase gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all text-smsm:p-4">already submitted for review</button>
+                                    requester?.status === "applied" || requester?.status === "approved" ? ""
                                         :
                                         <button type="submit" class="py-3 px-4 inline-flex justify-center items-center uppercase gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all text-smsm:p-4">submit for review</button>
+                                }
+                                {
+                                    requester?.status === "approved" && <button disabled type="submit" class="py-3 px-4 inline-flex justify-center items-center uppercase gap-2 rounded-md border border-transparent font-semibold bg-primary text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all text-smsm:p-4">You're Already Approved</button>
                                 }
                             </div>
                         </form>

@@ -9,6 +9,7 @@ import useUsersData from '../../hooks/useUsersData';
 const OurServices = () => {
     const [courses] = useCourses();
     const [users] = useUsersData();
+    const totalEnroll = courses.reduce((acc, current) => acc + current.totalEnrollment ,0)
     const [counterOn, setCounterOn] = useState(false);
     return (
         <div className='px-5 lg:px-0'>
@@ -33,7 +34,7 @@ const OurServices = () => {
                                         <p className="text-base font-medium leading-7 text-center capitalize">total classes</p>
                                     </div>
                                     <div className="flex flex-col items-center">
-                                        <h3 className="text-2xl md:text-3xl lg:text-5xl font-extrabold leading-tight text-center">{counterOn && <CountUp start={0} end={100} />}+</h3>
+                                            <h3 className="text-2xl md:text-3xl lg:text-5xl font-extrabold leading-tight text-center">{counterOn && <CountUp start={0} end={totalEnroll} />}+</h3>
                                         <p className="text-base font-medium leading-7 text-center capitalize">Total enrollment</p>
                                     </div>
                                 </div>
