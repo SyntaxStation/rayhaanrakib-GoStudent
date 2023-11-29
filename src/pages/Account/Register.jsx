@@ -25,6 +25,7 @@ const Register = () => {
                     displayName: result.user?.displayName,
                     photoURL: result.user?.photoURL,
                     email: result.user?.email,
+                    userID: result.user?.uid,
                     role,
                     category,
                     experience,
@@ -49,13 +50,14 @@ const Register = () => {
         const title = "";
         signup(email, password)
             .then(res => {
+                const userID = res.user?.uid;
                 userUpdateProfile(name, photo)
                     .then(() => {
                         const userInfo = {
                             displayName: name,
                             photoURL: photo,
                             email,
-                            role, category, experience, title
+                            role, category, experience, title, userID
                         };
                         axiosPublic.post('/api/v1/users', userInfo)
                             .then(res => {

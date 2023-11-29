@@ -26,6 +26,7 @@ const Login = () => {
                     displayName: result.user?.displayName,
                     photoURL: result.user?.photoURL,
                     email: result.user?.email,
+                    userID: result.user?.uid,
                     role,
                     category,
                     experience,

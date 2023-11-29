@@ -60,7 +60,7 @@ const UsersInfo = () => {
                         </thead>
                         <tbody>
                             {
-                                users.map((user, index) =>
+                                users?.map((user, index) =>
                                     <tr key={user._id} className="hover">
                                         <th>{index + 1}</th>
                                         <td>

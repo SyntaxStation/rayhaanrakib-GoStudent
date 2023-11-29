@@ -1,13 +1,13 @@
-import useAxiosSecure from './useAxiosSecure';
+import useAxiosPublic from "./useAxiosPublic";
 import { useQuery } from '@tanstack/react-query';
 
 const useCourses = () => {
-    const axiosSecure = useAxiosSecure();
+    const axiosPublic = useAxiosPublic();
     const { data: courses = [] } = useQuery({
         queryKey: ['courses'],
         queryFn: async () => {
             const url = `/api/v1/courses?status=1`
-            const res = await axiosSecure.get(url)
+            const res = await axiosPublic.get(url)
             return res.data
         }
     })

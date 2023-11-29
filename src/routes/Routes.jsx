@@ -19,6 +19,9 @@ import TeacherProfile from './../pages/Dashboards/TeacherDashboard/TeacherProfil
 import UsersInfo from '../pages/Dashboards/AdminDashboard/UsersInfo';
 import AppliedInfo from '../pages/Dashboards/AdminDashboard/AppliedInfo';
 import AllClassesInfo from '../pages/Dashboards/AdminDashboard/AllClassesInfo';
+import AddClass from '../pages/Dashboards/TeacherDashboard/AddClass';
+import AddedClasses from '../pages/Dashboards/TeacherDashboard/AddedClasses';
+import StudentClasses from '../pages/Dashboards/StudentDashboard/StudentClasses';
 
 
 const Routes = createBrowserRouter([
@@ -91,6 +94,11 @@ const Routes = createBrowserRouter([
                 path: "profile",
                 element: <PrivateRoutes><StudentProfile></StudentProfile></PrivateRoutes>
 
+            },
+            {
+                path: "class",
+                element: <PrivateRoutes><StudentClasses></StudentClasses></PrivateRoutes>
+
             }
         ]
     },
@@ -101,6 +109,16 @@ const Routes = createBrowserRouter([
             {
                 path: "profile",
                 element: <PrivateRoutes><TeacherProfile></TeacherProfile></PrivateRoutes>
+
+            },
+            {
+                path: "add",
+                element: <PrivateRoutes><AddClass></AddClass></PrivateRoutes>
+
+            },
+            {
+                path: "classes",
+                element: <PrivateRoutes><AddedClasses></AddedClasses></PrivateRoutes>
 
             }
         ]

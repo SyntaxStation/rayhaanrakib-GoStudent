@@ -1,7 +1,6 @@
 import React from 'react';
 
-const AdminRoutes = () => {
-    
+const AddedClasses = () => {
     return (
         <div>
             
@@ -9,4 +8,4 @@ const AdminRoutes = () => {
     );
 };
 
-export default AdminRoutes;
+export default AddedClasses;

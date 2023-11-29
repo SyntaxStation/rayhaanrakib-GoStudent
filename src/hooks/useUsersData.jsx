@@ -3,6 +3,7 @@ import useAxiosSecure from './useAxiosSecure';
 
 const useUsersData = () => {
     const axiosSecure = useAxiosSecure();
+    
     const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {

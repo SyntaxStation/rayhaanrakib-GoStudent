@@ -1,13 +1,14 @@
 import React from 'react';
-import useUsersData from '../../../hooks/useUsersData';
 import useAuth from '../../../hooks/useAuth';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import useUserInfo from '../../../hooks/useUserInfo';
 
 const TeacherDashboard = () => {
-    const [users] = useUsersData();
+    const [userInfo] = useUserInfo();
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
-    const admin = users.find(userData => userData?.email == email);
+    const check = userInfo?.result?.email == email;
+    const teacher = userInfo?.result;
     return (
         <div>
             <div class="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -21,7 +22,7 @@ const TeacherDashboard = () => {
                     <div class="mt-8 text-center">
                         <img src={photoURL} alt="" class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28" />
                         <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{displayName}</h5>
-                        <span class="hidden text-gray-400 lg:block">{admin?.role}</span>
+                        <span class="hidden text-gray-400 lg:block">{teacher?.role}</span>
                     </div>
 
                     <ul class="space-y-2 tracking-wide mt-8">

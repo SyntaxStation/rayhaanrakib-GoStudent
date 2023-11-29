@@ -1,12 +1,14 @@
 import React from 'react';
-import useUsersData from '../../../hooks/useUsersData';
 import useAuth from '../../../hooks/useAuth';
+import useUserInfo from '../../../hooks/useUserInfo';
 
 const AdminProfile = () => {
-    const [users] = useUsersData();
+    const [userInfo] = useUserInfo();
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
-    const admin = users.find(userData => userData?.email == email);
+    const check = userInfo?.result?.email == email;
+    const admin = userInfo?.result;
+
     const imagePath = 'https://images.unsplash.com/photo-1499336315816-097655dcfbda';
     return (
         <div>

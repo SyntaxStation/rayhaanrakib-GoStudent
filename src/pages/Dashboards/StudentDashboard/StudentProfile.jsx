@@ -1,12 +1,14 @@
 import React from 'react';
-import useUsersData from '../../../hooks/useUsersData';
 import useAuth from '../../../hooks/useAuth';
+import useUserInfo from '../../../hooks/useUserInfo';
 
 const StudentProfile = () => {
-    const [users] = useUsersData();
+    const [userInfo] = useUserInfo();
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
-    const admin = users.find(userData => userData?.email == email);
+    const check = userInfo?.result?.email == email;
+    const student = userInfo?.result;
+
     const imagePath = 'https://images.unsplash.com/photo-1499336315816-097655dcfbda';
     return (
         <div>
@@ -31,10 +33,10 @@ const StudentProfile = () => {
                                     {displayName}
                                 </h3>
                                 <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                                    {admin?.title}
+                                    {student?.title}
                                 </div>
                                 <div className="mb-2 capitalize text-blueGray-600 mt-10">
-                                    Your Role - {admin?.role}
+                                    Your Role - {student?.role}
                                 </div>
                                 <div className="mb-2 text-blueGray-600">
                                     Your Email - {email}

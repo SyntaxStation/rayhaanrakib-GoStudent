@@ -1,13 +1,14 @@
 import React from 'react';
-import useUsersData from '../../../hooks/useUsersData';
 import useAuth from '../../../hooks/useAuth';
 import { Outlet, Link, NavLink } from 'react-router-dom';
+import useUserInfo from '../../../hooks/useUserInfo';
 
 const AdminDashboard = () => {
-    const [users] = useUsersData();
+    const [userInfo] = useUserInfo();
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
-    const admin = users.find(userData => userData?.email == email);
+    const check = userInfo?.result?.email == email;
+    const admin = userInfo?.result;
     return (
         <div>
             <div className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
