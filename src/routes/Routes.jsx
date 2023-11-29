@@ -23,6 +23,7 @@ import AddClass from '../pages/Dashboards/TeacherDashboard/AddClass';
 import AddedClasses from '../pages/Dashboards/TeacherDashboard/AddedClasses';
 import StudentClasses from '../pages/Dashboards/StudentDashboard/StudentClasses';
 import AdminRoutes from './AdminRoutes';
+import TeacherRoutes from './TeacherRoutes';
 
 
 const Routes = createBrowserRouter([
@@ -113,21 +114,21 @@ const Routes = createBrowserRouter([
     // teacher routes
     {
         path: "teacher-dashboard",
-        element: <PrivateRoutes><TeacherDashboard></TeacherDashboard></PrivateRoutes>,
+        element: <TeacherRoutes><TeacherDashboard></TeacherDashboard></TeacherRoutes>,
         children: [
             {
                 path: "profile",
-                element: <PrivateRoutes><TeacherProfile></TeacherProfile></PrivateRoutes>
+                element: <TeacherRoutes><TeacherProfile></TeacherProfile></TeacherRoutes>
 
             },
             {
                 path: "add",
-                element: <PrivateRoutes><AddClass></AddClass></PrivateRoutes>
+                element: <TeacherRoutes><AddClass></AddClass></TeacherRoutes>
 
             },
             {
                 path: "classes",
-                element: <PrivateRoutes><AddedClasses></AddedClasses></PrivateRoutes>
+                element: <TeacherRoutes><AddedClasses></AddedClasses></TeacherRoutes>
 
             }
         ]

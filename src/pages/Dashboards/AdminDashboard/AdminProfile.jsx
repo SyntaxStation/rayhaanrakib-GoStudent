@@ -33,13 +33,13 @@ const AdminProfile = () => {
                                     {displayName}
                                 </h3>
                                 <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                                    {admin?.title}
+                                    {admin?.role} {admin?.status === "approved" ? "& Instructor" : ""}
                                 </div>
                                 <div className="mb-2 capitalize text-blueGray-600 mt-10">
-                                    Your Role - {admin?.role}
+                                    {admin?.title} 
                                 </div>
                                 <div className="mb-2 text-blueGray-600">
-                                    Your Email - {email}
+                                    {email}
                                 </div>
                             </div>
                             <div className="mt-10 py-10 border-t border-blueGray-200 text-center">

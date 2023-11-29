@@ -33,13 +33,13 @@ const TeacherProfile = () => {
                                     {displayName}
                                 </h3>
                                 <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-                                    {teacher?.title}
+                                    {teacher?.status === "approved" ? "Instructor & " : ""} {teacher?.role} 
                                 </div>
                                 <div className="mb-2 capitalize text-blueGray-600 mt-10">
-                                    Your Role - {teacher?.role}
+                                    {teacher?.title} 
                                 </div>
                                 <div className="mb-2 text-blueGray-600">
-                                    Your Email - {email}
+                                 {email}
                                 </div>
                             </div>
                             <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
