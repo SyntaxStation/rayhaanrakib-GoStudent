@@ -17,6 +17,9 @@ const Banner = () => {
                             <a className="w-full sm:w-auto py-4 px-5 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary text-white hover:bg-accent disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="/all-courses">
                                 Get Started Today <FaArrowRight></FaArrowRight>
                             </a>
+                            <a className="w-full hidden sm:w-auto py-4 px-5 justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-primary text-white hover:bg-accent disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600" href="/#top">
+                                Get Started Today <FaArrowRight></FaArrowRight>
+                            </a>
                         </div>
                     </div>
 

@@ -8,7 +8,7 @@ const UsersInfo = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/api/v1/users');
+            const res = await axiosSecure.get('/api/v1/users/private');
             return res.data;
         }
     })
@@ -43,7 +43,7 @@ const UsersInfo = () => {
     return (
         <div className='px-5 lg:px-0'>
             <div className='max-w-3xl mx-auto mt-10'>
-                <h2 className='capitalize text-2xl font-semibold'>total users: {users.length} </h2>
+                <h2 className='capitalize text-2xl font-semibold'>total users: {users?.length} </h2>
             </div>
             <div className='max-w-5xl mx-auto mt-10'>
                 <div className="overflow-x-auto">
@@ -58,28 +58,33 @@ const UsersInfo = () => {
                                 <th>Make Admin</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {
-                                users?.map((user, index) =>
-                                    <tr key={user._id} className="hover">
-                                        <th>{index + 1}</th>
-                                        <td>
-                                            <img className='w-10 h-10 rounded-md object-cover' src={user?.photoURL} alt="" />
-                                        </td>
-                                        <td>{user?.displayName}</td>
-                                        <td>{user?.email}</td>
-                                        <td>{user?.role}</td>
-                                        <td>
-                                            {
-                                                user?.role === "admin" ? 'Already Added' : <button onClick={() => handleMakeAdmin(user)}><img className='w-10 h-10 ml-3 object-cover' src="https://i.ibb.co/tHhLQdc/admin.png" alt="" /></button>
-                                            }
-                                        </td>
-                                    </tr>
-                                )
-                            }
+                        {
+                            users.length > 0 ? (<tbody>
+                                {
+                                    users?.map((user, index) =>
+                                        <tr key={user._id} className="hover">
+                                            <th>{index + 1}</th>
+                                            <td>
+                                                <img className='w-10 h-10 rounded-md object-cover' src={user?.photoURL} alt="" />
+                                            </td>
+                                            <td>{user?.displayName}</td>
+                                            <td>{user?.email}</td>
+                                            <td>{user?.role}</td>
+                                            <td>
+                                                {
+                                                    user?.role === "admin" ? 'Already Added' : <button onClick={() => handleMakeAdmin(user)}><img className='w-10 h-10 ml-3 object-cover' src="https://i.ibb.co/tHhLQdc/admin.png" alt="" /></button>
+                                                }
+                                            </td>
+                                        </tr>
+                                    )
+                                }
 
 
-                        </tbody>
+                            </tbody>)
+                                :
+                                (<div className='flex items-center justify-center'><img src="https://cdn.dribbble.com/userupload/10929242/file/original-738cfc1549ed4c3176b5782d6b09c011.png" alt="" /></div>)
+                        }
+                        
                     </table>
                 </div>
             </div>

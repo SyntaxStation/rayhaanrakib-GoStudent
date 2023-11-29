@@ -22,6 +22,7 @@ import AllClassesInfo from '../pages/Dashboards/AdminDashboard/AllClassesInfo';
 import AddClass from '../pages/Dashboards/TeacherDashboard/AddClass';
 import AddedClasses from '../pages/Dashboards/TeacherDashboard/AddedClasses';
 import StudentClasses from '../pages/Dashboards/StudentDashboard/StudentClasses';
+import AdminRoutes from './AdminRoutes';
 
 
 const Routes = createBrowserRouter([
@@ -60,32 +61,37 @@ const Routes = createBrowserRouter([
             },
         ]
     },
+
+    // admin routes
     {
         path: "admin-dashboard",
-        element: <PrivateRoutes><AdminDashboard></AdminDashboard></PrivateRoutes>,
+        element: <AdminRoutes><AdminDashboard></AdminDashboard></AdminRoutes>,
         children: [
             {
                 path: "profile",
-                element: <PrivateRoutes><AdminProfile></AdminProfile></PrivateRoutes>
+                element: <AdminRoutes><AdminProfile></AdminProfile></AdminRoutes>
 
             },
             {
                 path: "users",
-                element: <PrivateRoutes><UsersInfo></UsersInfo></PrivateRoutes>
+                element: <AdminRoutes><UsersInfo></UsersInfo></AdminRoutes>
 
             },
             {
                 path: "classes",
-                element: <PrivateRoutes><AllClassesInfo></AllClassesInfo></PrivateRoutes>
+                element: <AdminRoutes><AllClassesInfo></AllClassesInfo></AdminRoutes>
 
             },
             {
                 path: "request",
-                element: <PrivateRoutes><AppliedInfo></AppliedInfo></PrivateRoutes>
+                element: <AdminRoutes><AppliedInfo></AppliedInfo></AdminRoutes>
 
             }
         ]
     },
+
+
+    // normal user & student routes
     {
         path: "user-dashboard",
         element: <PrivateRoutes><StudentDashboard></StudentDashboard></PrivateRoutes>,
@@ -102,6 +108,9 @@ const Routes = createBrowserRouter([
             }
         ]
     },
+
+
+    // teacher routes
     {
         path: "teacher-dashboard",
         element: <PrivateRoutes><TeacherDashboard></TeacherDashboard></PrivateRoutes>,

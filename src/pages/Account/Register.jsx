@@ -25,7 +25,6 @@ const Register = () => {
                     displayName: result.user?.displayName,
                     photoURL: result.user?.photoURL,
                     email: result.user?.email,
-                    userID: result.user?.uid,
                     role,
                     category,
                     experience,
@@ -34,7 +33,7 @@ const Register = () => {
                 axiosPublic.post('/api/v1/users', userInfo)
                     .then(res => {
                         toast.success("Successfully Registered")
-                        navigate(location?.state ? location.state : '/#')
+                        navigate(location?.state ? location.state : '/#top')
                         window.location.reload();
                     })
             })
@@ -50,19 +49,18 @@ const Register = () => {
         const title = "";
         signup(email, password)
             .then(res => {
-                const userID = res.user?.uid;
                 userUpdateProfile(name, photo)
                     .then(() => {
                         const userInfo = {
                             displayName: name,
                             photoURL: photo,
                             email,
-                            role, category, experience, title, userID
+                            role, category, experience, title
                         };
                         axiosPublic.post('/api/v1/users', userInfo)
                             .then(res => {
                                 toast.success("Successfully Registered")
-                                navigate(location?.state ? location.state : '/#')
+                                navigate(location?.state ? location.state : '/#top')
                                 window.location.reload();
                             })
 

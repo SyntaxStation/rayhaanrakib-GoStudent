@@ -26,7 +26,6 @@ const Login = () => {
                     displayName: result.user?.displayName,
                     photoURL: result.user?.photoURL,
                     email: result.user?.email,
-                    userID: result.user?.uid,
                     role,
                     category,
                     experience,
@@ -35,7 +34,7 @@ const Login = () => {
                 axiosPublic.post('/api/v1/users', userInfo)
                     .then(res => {
                         toast.success("Successfully Registered")
-                        navigate(location?.state ? location.state : '/#')
+                        navigate(location?.state ? location.state : '/#top')
                         window.location.reload();
                     })
             })
@@ -46,7 +45,7 @@ const Login = () => {
         login(email, password)
             .then((res) => {
                 toast.success("Successfully Logged In")
-                navigate(location?.state ? location.state : '/#')
+                navigate(location?.state ? location.state : '/#top')
                 window.location.reload();
             })
             .catch((err) => {
