@@ -17,8 +17,8 @@ const Courses = () => {
 
     return (
         <div className=''>
+            <Helmet title={`Courses | GS Classroom`} />
             <div className='container mx-auto min-h-screen'>
-                <Helmet><title>GoStudent Classroom | All Courses</title></Helmet>
                 <div className=''>
                     <div class="relative overflow-hidden">
                         <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24">

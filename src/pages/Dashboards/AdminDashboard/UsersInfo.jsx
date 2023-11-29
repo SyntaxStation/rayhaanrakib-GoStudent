@@ -47,19 +47,19 @@ const UsersInfo = () => {
             </div>
             <div className='max-w-5xl mx-auto mt-10'>
                 <div className="overflow-x-auto">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>SN</th>
-                                <th>Profile</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Make Admin</th>
-                            </tr>
-                        </thead>
-                        {
-                            users.length > 0 ? (<tbody>
+                    {
+                        users.length > 0 ? (<table className="table">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Profile</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Make Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 {
                                     users?.map((user, index) =>
                                         <tr key={user._id} className="hover">
@@ -80,12 +80,12 @@ const UsersInfo = () => {
                                 }
 
 
-                            </tbody>)
-                                :
-                                (<div className='flex items-center justify-center'><img src="https://cdn.dribbble.com/userupload/10929242/file/original-738cfc1549ed4c3176b5782d6b09c011.png" alt="" /></div>)
-                        }
-                        
-                    </table>
+                            </tbody>
+                        </table>)
+                            :
+                            (<div className='flex items-center justify-center'><img src="https://cdn.dribbble.com/userupload/10929242/file/original-738cfc1549ed4c3176b5782d6b09c011.png" alt="" /></div>)
+                    }
+                    
                 </div>
             </div>
         </div>

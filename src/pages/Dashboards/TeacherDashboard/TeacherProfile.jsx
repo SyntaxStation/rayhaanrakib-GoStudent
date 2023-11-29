@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useUserInfo from '../../../hooks/useUserInfo';
+import { Helmet } from 'react-helmet';
 
 const TeacherProfile = () => {
     const [userInfo] = useUserInfo();
@@ -12,6 +13,7 @@ const TeacherProfile = () => {
     const imagePath = 'https://images.unsplash.com/photo-1499336315816-097655dcfbda';
     return (
         <div>
+            <Helmet title={`${displayName} Profile | Instructor | GS Classroom`} />
             <div className="relative block min-h-[70vh]">
                 <div className="absolute top-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: `url(${imagePath})` }}>
                     <span id="blackOverlay" className="w-full h-full absolute opacity-50 bg-black"></span>

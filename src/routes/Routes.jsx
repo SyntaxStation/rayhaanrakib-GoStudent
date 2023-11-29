@@ -24,6 +24,7 @@ import AddedClasses from '../pages/Dashboards/TeacherDashboard/AddedClasses';
 import StudentClasses from '../pages/Dashboards/StudentDashboard/StudentClasses';
 import AdminRoutes from './AdminRoutes';
 import TeacherRoutes from './TeacherRoutes';
+import Payment from '../pages/Payments/Payment';
 
 
 const Routes = createBrowserRouter([
@@ -51,6 +52,10 @@ const Routes = createBrowserRouter([
             {
                 path: "/course/:id",
                 element: <PrivateRoutes><CourseDetails></CourseDetails></PrivateRoutes>
+            },
+            {
+                path: "/payment/:id",
+                element: <PrivateRoutes><Payment></Payment></PrivateRoutes>
             },
             {
                 path: "/about-us",

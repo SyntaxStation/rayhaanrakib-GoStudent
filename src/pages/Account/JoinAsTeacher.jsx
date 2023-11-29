@@ -50,9 +50,7 @@ const JoinAsTeacher = () => {
 
     return (
         <div className='container mx-auto'>
-            <Helmet>
-                <title>GoStudent Classroom | Join As Instructor</title>
-            </Helmet>
+            <Helmet title={`Join As Instructor | GS Classroom`} />
             <div class="overflow-hidden gap-5">
                 <div class="w-full py-12 px-4 sm:px-6 md:py-20 md:px-8">
                     <div class="mx-auto">

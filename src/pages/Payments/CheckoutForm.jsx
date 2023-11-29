@@ -1,14 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const AddedClasses = () => {
+const CheckoutForm = () => {
     return (
         <div>
-            <Helmet title={`Courses You Take | GS Classroom`} />
-
+            <Helmet title='Checkout | GS Classroom' />
             
         </div>
     );
 };
 
-export default AddedClasses;
+export default CheckoutForm;

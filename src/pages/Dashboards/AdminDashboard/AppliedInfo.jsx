@@ -2,6 +2,7 @@ import React from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AppliedInfo = () => {
     const axiosSecure = useAxiosSecure();
@@ -70,6 +71,7 @@ const AppliedInfo = () => {
 
     return (
         <div className='px-5 lg:px-0'>
+            <Helmet title={`Instructor Post Applicants | GS Classroom`} />
             <div className='max-w-3xl mx-auto mt-10'>
                 <h2 className='capitalize text-2xl font-semibold'>total applied requests: {requests.length} </h2>
             </div>

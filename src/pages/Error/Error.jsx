@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa6';
+import { Helmet } from 'react-helmet';
 
 const Error = () => {
     return (
         <div className=''>
+            <Helmet title='Error | GS Classroom' />
             <div className='flex flex-col justify-center justify-items-center items-center min-h-screen'>
                 <div className='flex flex-col justify-center items-center'>
                     <img src="https://i.ibb.co/LNbVYkZ/error.png" alt="404" className="text-2xl w-full md:w-[85%]" />

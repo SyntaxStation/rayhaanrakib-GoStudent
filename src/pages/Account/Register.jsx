@@ -70,9 +70,7 @@ const Register = () => {
 
     return (
         <div className='container mx-auto'>
-            <Helmet>
-                <title>GoStudent Classroom | SignUp</title>
-            </Helmet>
+            <Helmet title={`Sign Up | GS Classroom`} />
             <div class="flex flex-row-reverse overflow-hidden items-center gap-5">
                 <div class="w-full md:w-1/2 py-12 px-4 sm:px-6 md:py-20 md:px-8">
                     <div class="mx-auto">
