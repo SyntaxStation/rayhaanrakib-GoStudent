@@ -11,7 +11,7 @@ const Layout = () => {
 
     return (
         <div>
-            <div className='bg-base-100 shadow-sm'>
+            <div className='shadow-sm'>
                 <Navbar></Navbar>
             </div>
             <Outlet />

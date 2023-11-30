@@ -85,6 +85,7 @@ const CheckoutForm = ({courseInfo}) => {
                     instructorName: courseInfo?.instructorName,
 
                 }
+                const update = await axiosSecure.patch(`/enroll/${courseInfo?._id}`)
                 const res = await axiosSecure.post('/payments', payment)
                     .then(res => {
                         if (res.data?.insertedId) {

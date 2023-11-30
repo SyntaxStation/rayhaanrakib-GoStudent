@@ -27,6 +27,7 @@ import TeacherRoutes from './TeacherRoutes';
 import Payment from '../pages/Payments/Payment';
 import CourseProgress from './../pages/Dashboards/TeacherDashboard/CourseProgress';
 import CourseUpdate from '../pages/Dashboards/TeacherDashboard/CourseUpdate';
+import StudentClassProgress from '../pages/Dashboards/StudentDashboard/StudentClassProgress';
 
 
 const Routes = createBrowserRouter([
@@ -113,6 +114,11 @@ const Routes = createBrowserRouter([
             {
                 path: "class",
                 element: <PrivateRoutes><StudentClasses></StudentClasses></PrivateRoutes>
+
+            },
+            {
+                path: "details/:id",
+                element: <PrivateRoutes><StudentClassProgress></StudentClassProgress></PrivateRoutes>
 
             }
         ]
