@@ -4,9 +4,11 @@ import { useLocation, Link } from 'react-router-dom';
 import useCourses from '../../hooks/useCourses';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import useAuth from './../../hooks/useAuth';
 
 const CourseDetails = () => {
     const [courses] = useCourses();
+    const { user } = useAuth();
     const location = useLocation();
     const pathname = location.pathname;
     const [tabIndex, setTabIndex] = useState(0);
@@ -30,6 +32,9 @@ const CourseDetails = () => {
         detailedDescription,
         totalEnrollment,
         courseStatus } = course || {};
+    
+    
+    
 
     return (
         <div className='container mx-auto my-10'>

@@ -6,7 +6,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { Helmet } from 'react-helmet';
 
-const stripePromise = loadStripe('');
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+import CheckoutForm from './CheckoutForm';
 
 const Payment = () => {
     const location = useLocation();
@@ -22,22 +23,22 @@ const Payment = () => {
         })
 
     }, [url, axiosSecure, payId])
+
     return (
         <div className='container mx-auto my-10'>
             <Helmet title='Payment | GS Classroom' />
             <SectionTitle heading="Payment Details" subheading="Seamless Transactions for Instant Access to Premium Learning" ></SectionTitle>
-
-            <div className='p-20 flex flex-col items-center'>
+            
+            <div className='p-4 flex flex-col items-center'>
                 <div>
                     <h2 className='text-xl font-semibold'>{courseInfo.courseName}</h2>
-                    <p className='text-gray-700 my-10 '>{courseInfo.detailedDescription}</p>
+                    <p className='text-gray-700 my-10 text-xl font-semibold text-center'>Payment: ${courseInfo.price}</p>
                 </div>
-                <div>
+                <div className='w-full md:w-1/2'>
                     <Elements stripe={stripePromise}>
-
+                        <CheckoutForm courseInfo={courseInfo} />
                     </Elements>
                 </div>
-                <button className="btn w-80 text-white bg-primary hover:bg-accent">Pay Now</button>
             </div>
             <div className='w-full px-10 md:px-20'>
                 <div className='flex flex-col gap-4 my-1 md:my-3 lg:my-0'>

@@ -18,7 +18,7 @@ const AddedClasses = () => {
         },
     })
 
-    console.log(addedClasses);
+    
     return (
         <div>
             <Helmet title={`My Courses | GS Classroom`} />
