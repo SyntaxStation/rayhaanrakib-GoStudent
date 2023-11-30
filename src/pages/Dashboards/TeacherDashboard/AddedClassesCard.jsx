@@ -68,8 +68,8 @@ const AddedClassesCard = ({ course, refetch }) => {
                                 <h3 className="text-secondary font-semibold text-base lg:text-xl tracking-tight">{courseName}</h3>
                             </a>
                         <h3 className="text-gray-600 font-light text-sm my-2">{shortDescription}</h3>
-                        <h3 className="text-secondary font-medium text-sm tracking-tight my-2">Instructor: {instructorName}</h3>
-                        <h3 className="text-secondary text-xs tracking-tight">Instructor: {instructorEmail}</h3>
+                        <h3 className="text-secondary font-medium text-sm tracking-tight my-2">Instructor Name: {instructorName}</h3>
+                        <h3 className="text-secondary text-xs tracking-tight">Instructor Email: {instructorEmail}</h3>
                         <div className="flex items-center my-3">
                             <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">{courseStatus? "Approved": "Pending"}</span>
                         </div>
