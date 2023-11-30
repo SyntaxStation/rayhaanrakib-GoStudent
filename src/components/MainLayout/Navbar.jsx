@@ -2,17 +2,13 @@ import { Link, NavLink } from 'react-router-dom';
 import { FiUser } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import useAuth from '../../hooks/useAuth';
-import useUsersData from '../../hooks/useUsersData';
+import useUserInfo from '../../hooks/useUserInfo';
 
 
 const Navbar = () => {
-    const { user, logOut, loading } = useAuth();
-    const [users] = useUsersData();
-    if (loading) {
-        return <h2></h2>
-    }
-    const current = users.find(userData => userData?.email === user?.email);
-    
+    const { user, logOut } = useAuth();
+    const userInfo = useUserInfo();
+    const current = userInfo?.result;
     const handleLogOut = e => {
         logOut()
             .then((res) => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import toast from 'react-hot-toast';
 import useAuth from './../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet';

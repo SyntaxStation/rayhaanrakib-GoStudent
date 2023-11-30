@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const UsersInfo = () => {
     const axiosSecure = useAxiosSecure();
@@ -42,6 +43,7 @@ const UsersInfo = () => {
 
     return (
         <div className='px-5 lg:px-0'>
+            <Helmet title={`All Users | GS Classroom`} />
             <div className='max-w-3xl mx-auto mt-10'>
                 <h2 className='capitalize text-2xl font-semibold'>total users: {users?.length} </h2>
             </div>
@@ -83,9 +85,9 @@ const UsersInfo = () => {
                             </tbody>
                         </table>)
                             :
-                            (<div className='flex items-center justify-center'><img src="https://cdn.dribbble.com/userupload/10929242/file/original-738cfc1549ed4c3176b5782d6b09c011.png" alt="" /></div>)
+                            (<div className='flex items-center justify-center'><img src="https://i.ibb.co/CKTK7fD/loadData.png" alt="" /></div>)
                     }
-                    
+
                 </div>
             </div>
         </div>

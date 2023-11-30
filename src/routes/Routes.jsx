@@ -25,6 +25,8 @@ import StudentClasses from '../pages/Dashboards/StudentDashboard/StudentClasses'
 import AdminRoutes from './AdminRoutes';
 import TeacherRoutes from './TeacherRoutes';
 import Payment from '../pages/Payments/Payment';
+import CourseProgress from './../pages/Dashboards/TeacherDashboard/CourseProgress';
+import CourseUpdate from '../pages/Dashboards/TeacherDashboard/CourseUpdate';
 
 
 const Routes = createBrowserRouter([
@@ -65,6 +67,7 @@ const Routes = createBrowserRouter([
                 path: "/join-as-instructor",
                 element: <PrivateRoutes><JoinAsTeacher></JoinAsTeacher></PrivateRoutes>
             },
+            
         ]
     },
 
@@ -135,6 +138,14 @@ const Routes = createBrowserRouter([
                 path: "classes",
                 element: <TeacherRoutes><AddedClasses></AddedClasses></TeacherRoutes>
 
+            },
+            {
+                path: "details/:id",
+                element: <TeacherRoutes><CourseProgress></CourseProgress></TeacherRoutes>
+            },
+            {
+                path: "update/:id",
+                element: <TeacherRoutes><CourseUpdate></CourseUpdate></TeacherRoutes>
             }
         ]
     }

@@ -4,7 +4,7 @@ import useUserInfo from '../../../hooks/useUserInfo';
 import { Helmet } from 'react-helmet';
 
 const AdminProfile = () => {
-    const [userInfo] = useUserInfo();
+    const userInfo = useUserInfo();
     const { user } = useAuth();
     const { displayName, email, photoURL } = user;
     const check = userInfo?.result?.email == email;

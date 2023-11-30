@@ -1,22 +1,23 @@
-import React from 'react';
 import useAxiosPublic from './useAxiosPublic';
 import useAuth from './useAuth';
-import { useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 
 const useUserInfo = () => {
     const axiosPublic = useAxiosPublic();
-    const { user } = useAuth();
-    const { data: userInfo = [] } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const url = `/api/v1/users/${user.email}`
-            const res = await axiosPublic.get(url)
-            return res.data
+    const [userInfo, setUserInfo] = useState([])
+    const { user, loading } = useAuth();
+    const loggedEmail = user?.email;
+    const url = `/api/v1/users/${loggedEmail}`
+    useEffect(() => {
+        if (!loggedEmail || loading) {
+            return
         }
-    })
-
-
-    return [userInfo]
+        axiosPublic.get(url)
+            .then(res => {
+                setUserInfo(res.data)
+            })
+    }, [axiosPublic, url, loggedEmail])
+    return userInfo
 };
 
 export default useUserInfo;
