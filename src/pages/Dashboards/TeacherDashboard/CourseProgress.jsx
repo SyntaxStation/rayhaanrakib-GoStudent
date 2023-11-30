@@ -18,21 +18,28 @@ const CourseProgress = () => {
 
     }, [url, axiosSecure, classId])
 
-    
-    console.log(courseInfo);
     return (
         <div>
             <Helmet title={`Course Progress | GS Classroom`} />
             <div>
-                <div>
-                    <div>
-                        <div className="card w-96 bg-base-100 shadow-xl">
+                <div className='p-10'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
+                        <div className="card bg-base-100 shadow-xl">
                             <div className="card-body">
-                                <h2 className="card-title">Card title!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Buy Now</button>
-                                </div>
+                                <h2 className="card-title">Total Enrollment</h2>
+                                <p className='text-2xl font-semibold'>{courseInfo?.totalEnrollment}</p>
+                            </div>
+                        </div>
+                        <div className="card bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title">Total Enrollment</h2>
+                                <p className='text-2xl font-semibold'>{courseInfo?.totalEnrollment}</p>
+                            </div>
+                        </div>
+                        <div className="card bg-base-100 shadow-xl">
+                            <div className="card-body">
+                                <h2 className="card-title">Total Enrollment</h2>
+                                <p className='text-2xl font-semibold'>{courseInfo?.totalEnrollment}</p>
                             </div>
                         </div>
                     </div>

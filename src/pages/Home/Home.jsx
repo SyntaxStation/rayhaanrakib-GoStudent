@@ -9,6 +9,7 @@ import OurCourses from '../../components/OurCourses/OurCourses';
 import BecomeInstructor from '../../components/BecomeInstructor/BecomeInstructor';
 import OurServices from './../../components/OurServices/OurServices';
 import Faq from '../../components/Faq/Faq';
+import AboutUs from '../../components/AboutUs/AboutUs';
 
 const Home = () => {
     return (
@@ -34,6 +35,9 @@ const Home = () => {
             </div>
             <div className='mt-20'>
                 <AboutCourses></AboutCourses>
+            </div>
+            <div data-aos="fade-up" className='container mx-auto mt-20'>
+                <AboutUs />
             </div>
             <div data-aos="fade-up" className='container mx-auto mt-20'>
                 <Faq />
